@@ -14,8 +14,8 @@ module.exports = function(string) {
   // Perform the base words layer analysis on the string
   string.split(' ').forEach(function(word, i) {
 
-    // Make a lowercase copy of each word to compare against the base words library
-    var lowerCaseWord = word.toLowerCase();
+    // Make a lowercase copy of each word to compare against the base words library and remove ending punctuation
+    var lowerCaseWord = word.toLowerCase().replace(/[\.\!]/g, '');
 
     // If the copied word matches a positive word in the library, add the original word to the positive words array
     if (sentimentPositive[lowerCaseWord]) {

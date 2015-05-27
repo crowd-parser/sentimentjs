@@ -1,6 +1,6 @@
 {
   "name": "sentimentjs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/crowd-parser/sentimentjs/issues"
   },
-  "homepage": "https://github.com/crowd-parser/sentimentjs"
+  "homepage": "https://github.com/crowd-parser/sentimentjs",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
 }

@@ -1,0 +1,18 @@
+table {
+  text-align: center;
+}
+
+table td {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.positive-word {
+  color: green;
+  font-weight: bold;
+}
+
+.negative-word {
+  color: red;
+  font-weight: bold;
+}
