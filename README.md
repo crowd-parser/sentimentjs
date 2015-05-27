@@ -2,6 +2,8 @@
 
 > A sentiment analysis library for tweet objects and strings
 
+<img src="example-screenshot.png">
+
 This sentiment library is used in our Crowd Parser app, which analyzes Twitter sentiment. Check it out here: 
 
 [Crowd Parser](https://github.com/crowd-parser/crowd-parser)
@@ -151,6 +153,42 @@ Running the above will return an object that has this format:
   ]
 }
 ```
+
+## Using the Example
+
+First, navigate to the `example` directory.
+
+```
+cd example
+```
+
+Next, install dependencies:
+
+```
+npm install -g bower
+npm install
+bower install
+```
+
+Next, start the server:
+
+```
+node server
+```
+
+Finally, open `http://localhost:3000` in your browser.
+
+To test, edit the array of strings in `server.js`. You can also try to use the `tweetsArray` method and enter an array of tweets.
+
+```
+var results = allLayersAnalysis.stringsArray(['I love dogs. They are wonderful! 😍 😍', 'I hate brussel sprouts. They are terrible. 😾', 'This is great! But also bad.']);
+```
+
+Change the above array for testing. Again, the sample output can be displayed like this:
+
+<img src="example-screenshot.png">
+
+There is a function in `index.html` to highlight the positive and negative words in the text.
 
 ## Contributing
 
