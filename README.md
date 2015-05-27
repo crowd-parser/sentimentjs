@@ -2,7 +2,7 @@
 
 > A sentiment analysis library for tweet objects and strings
 
-<img src="example-screenshot.png">
+<img src="https://github.com/michaelcheng429/sentimentjs/blob/master/example-screenshot.png">
 
 This sentiment library is used in our Crowd Parser app, which analyzes Twitter sentiment. Check it out here: 
 
@@ -186,7 +186,7 @@ var results = allLayersAnalysis.stringsArray(['I love dogs. They are wonderful! 
 
 Change the above array for testing. Again, the sample output can be displayed like this:
 
-<img src="example-screenshot.png">
+<img src="https://github.com/michaelcheng429/sentimentjs/blob/master/example-screenshot.png">
 
 There is a function in `index.html` to highlight the positive and negative words in the text.
 
