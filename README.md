@@ -12,7 +12,11 @@ Our goal with `sentimentjs` is to improve upon other sentiment libraries by incl
 
 For example, our "emoticons layer" specifically looks for emoticons in a string or tweet and gauges sentiment based upon its findings.
 
-In the future, we hope to add more "layers," such as a "negation layer" and perhaps a "movie layer" that catches normal words that are actually movies.
+All Layers:
+
+1. Base common words layer
+1. Emoticon layer
+1. Slang layer
 
 Our base word lists come from renowned researchers Minqing Hu and Bing Liu, who authored this paper
 
@@ -28,7 +32,7 @@ _Discovery and Data Mining (KDD-2004), Aug 22-25, 2004, Seattle, Washington, USA
 
 ### Analyze an array of strings
 
-```
+```javascript
 var sentiment = require('sentimentjs');
 
 var arrayOfStrings = ['I love deep dish pizza :)', 'I hate brussel sprouts >:('];
@@ -40,7 +44,7 @@ console.log(sentimentStringsAnalysis);
 
 Running the above will return an object that has this format:
 
-```
+```javascript
 {
   stringsWithAnalyses: [
   {
@@ -95,7 +99,7 @@ To analyze tweet objects, you will need to have Twitter API credentials (keys, t
 
 To set up the Twitter API with a Node server, this is how we do it:
 
-```
+```javascript
 var Twit = require('twit');
 
 var T = new Twit({
@@ -109,7 +113,7 @@ var T = new Twit({
 #### Using sentimentjs with tweets
 
 
-```
+```javascript
 var sentiment = require('sentimentjs');
 
 T.get('search/tweets', {q: 'football', count: 50, result_type: 'mixed'}, function(err, data) {
@@ -121,7 +125,7 @@ T.get('search/tweets', {q: 'football', count: 50, result_type: 'mixed'}, functio
 
 Running the above will return an object that has this format:
 
-```
+```javascript
 {
   tweetsWithAnalyses: [
   {
@@ -143,12 +147,17 @@ Running the above will return an object that has this format:
       score: -2
     },
 
+    slangLayerResults: {
+      // SAME FORMAT AS ABOVE
+    },
+
     overallResults: {
       score: -1
     }
   },
   {
-    ** SAME AS ABOVE **
+    // TWEET #2
+    // ** SAME AS ABOVE **
   }
   ]
 }
@@ -180,7 +189,7 @@ Finally, open `http://localhost:3000` in your browser.
 
 To test, edit the array of strings in `server.js`. You can also try to use the `tweetsArray` method and enter an array of tweets.
 
-```
+```javascript
 var results = allLayersAnalysis.stringsArray(['I love dogs. They are wonderful! 😍 😍', 'I hate brussel sprouts. They are terrible. 😾', 'This is great! But also bad.']);
 ```
 

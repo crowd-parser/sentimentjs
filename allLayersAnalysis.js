@@ -1,5 +1,6 @@
 var baseLayerAnalysis = require('./baseWordsLayer/baseWordsLayerAnalysis');
 var emoticonLayerAnalysis = require('./emoticonLayer/emoticonLayerAnalysis');
+var slangLayerAnalysis = require('./slangLayer/slangLayerAnalysis');
 
   var allLayersAnalysis = {
 
@@ -31,12 +32,15 @@ var emoticonLayerAnalysis = require('./emoticonLayer/emoticonLayerAnalysis');
           // Get emoticon layer analysis result object; includes list of matching emojis and score
           emoticonLayerResults: emoticonLayerAnalysis(tweet.text),
 
+          // Get base layer analysis result object; includes list of matching words and score
+          slangLayerResults: slangLayerAnalysis(tweet.text),
+
           // Combined score of all layers
           overallResults: {}
         };
 
         // Calculation for combined score of all layers
-        tweetWithAnalyses.overallResults.score = tweetWithAnalyses.baseLayerResults.score + tweetWithAnalyses.emoticonLayerResults.score;
+        tweetWithAnalyses.overallResults.score = tweetWithAnalyses.baseLayerResults.score + tweetWithAnalyses.emoticonLayerResults.score + tweetWithAnalyses.slangLayerResults;
 
         // Push the tweetWithAnalyses object with layer analyses to the tweetsWithAnalyses array
         results.tweetsWithAnalyses.push(tweetWithAnalyses);
@@ -87,3 +91,5 @@ var emoticonLayerAnalysis = require('./emoticonLayer/emoticonLayerAnalysis');
   };
 
 module.exports = allLayersAnalysis;
+
+console.log(module.exports('I love hate :) >< :( lol fml mofo'))
